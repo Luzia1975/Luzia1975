@@ -3,10 +3,8 @@ info:
   title: LuzIA API
   version: 1.0.0
   description: API de suporte emocional com frases terapêuticas e ativação de skills por gatilho emocional.
-
 servers:
   - url: https://raw.githubusercontent.com/Luzia1975/Luzia1975/main
-
 paths:
   /skills:
     get:
@@ -20,7 +18,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Skill"
+                  $ref: '#/components/schemas/Skill'
     post:
       operationId: createSkill
       summary: Cria uma nova skill
@@ -29,7 +27,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Skill"
+              $ref: '#/components/schemas/Skill'
       responses:
         "201":
           description: Skill criada com sucesso
@@ -52,7 +50,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Skill"
+                  $ref: '#/components/schemas/Skill'
 
   /phrases:
     get:
@@ -68,16 +66,13 @@ paths:
                 properties:
                   escuta_ativa_pura:
                     type: array
-                    items:
-                      type: string
+                    items: { type: string }
                   desistência_cansaço:
                     type: array
-                    items:
-                      type: string
+                    items: { type: string }
                   autoimagem_abalada:
                     type: array
-                    items:
-                      type: string
+                    items: { type: string }
 
   /intro:
     get:

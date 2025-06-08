@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: Petstore Inventory API
+  version: 1.0.0
+  description: Acesso ao inventário de status dos pets da loja online.
+
+servers:
+  - url: http://petstore.swagger.io/v2
+    description: Servidor público da Swagger Petstore
+
+paths:
+  /store/inventory:
+    get:
+      operationId: getInventory
+      summary: Retorna o inventário de pets por status
+      description: Retorna um mapa com a quantidade de pets disponíveis, pendentes e vendidos.
+      parameters: []
+      responses:
+        '200':
+          description: Um objeto JSON com contagem de pets por status
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  available: 5
+                  pending: 2
+                  sold: 1
+      security:
+        - api_key: []
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
